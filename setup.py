@@ -6,7 +6,7 @@ with open("README.md", 'r') as f:
    
 setuptools.setup(
     name="abstraction-bnadeau", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Brandon Nadeau",
     author_email="",
     description="A small example package",

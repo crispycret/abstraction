@@ -3,6 +3,7 @@ setup.py
 abstraction/__init__.py
 abstraction/models.py
 abstraction/selenium/__init__.py
+abstraction/selenium/action.py
 abstraction/selenium/handler.py
 abstraction_bnadeau.egg-info/PKG-INFO
 abstraction_bnadeau.egg-info/SOURCES.txt
