@@ -1,21 +1,43 @@
 
-       
-class ObjectManager(list):
-    pass
+
+
+
 
 class Object(object):
+  
+  next_id = 0
+  last_id = 0
+  objects = []
+  
+  def __init__(self):
+      cls = self.__class__
     
-    last_id = 0
-    objects = ObjectManager()
-    
-    @staticmethod
-    def __add_new__ (obj): 
-        Object.objects.append(obj)
-        obj.id = Object.last_id        
-        Object.last_id += 1   
+      if ('objects' not in cls.__dict__.keys()):
+          setattr(cls, 'objects', [])
+          
+      if ('next_id' not in cls.__dict__.keys()):
+          setattr(cls, 'next_id', 0)
+      
+      cls.__addnew__(self)
+      
+  @classmethod
+  def __addnew__(cls, obj):
+      obj.id = cls.next_id
+      cls.objects.append(obj)
+      
+      cls.last_id = cls.next_id
+      cls.next_id += 1
+      
+      for base_cls in cls.__bases__:
+          func = getattr(base_cls, '__addnew__', None)
+          if callable(func):
+              base_cls.__addnew__(obj)
+  
+  
+  def __repr__(self):
+    return '<%s>' % self.__class__.__name__
+            
         
-    def __init__(self): 
-        Object.__add_new__(self)
 
 
 
@@ -35,3 +57,11 @@ class AbstractObject(dict):
             string += variable + "=" + str(value) + ", "
         return string + ">"
             
+
+
+
+
+
+
+
+
