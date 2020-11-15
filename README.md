@@ -5,6 +5,9 @@ This is a simple example package. You can use
 to write your content.
 
 
+# models.py
+## Object() class
+
 The `Object()` class can be used to create models that will keep a reference to every instance it has created.
 The `Object()` class will have every instance stored in its list.
 Subclasses of `Object()` will have their own list of instances.
@@ -49,4 +52,9 @@ Subclasses of subclasses will have their own list of instance but the parent cla
     Object: [<Color>, <Blue>, <Red>, <Green>, <A>, <B>, <C>]
 
     Object: [<Color>, <Blue>, <Red>, <Green>, <A>, <B>, <C>, <Object>, <Object>, <Object>, <Color>, <B>]
+    
+    
+    
+## AbstractObject() class
+ ! - add example
         
